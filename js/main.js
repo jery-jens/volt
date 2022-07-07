@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("scroll", () => {
         const position = window.scrollY;
+        console.log(position);
         position >= parameters.header.scrollDownMargin ? elements.header.classList.add(identifiers.header.scrolledDown) : elements.header.classList.remove(identifiers.header.scrolledDown);
     });
 });
