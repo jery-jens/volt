@@ -1,0 +1,7 @@
+.button:hover .button-label {
+    right: -150px;
+};
+
+.button:hover .button-icon {
+    left: 0px;
+}
