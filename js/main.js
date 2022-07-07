@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
             queryName: ".button",
             queryNameLabel: ".button-label",
             queryNameIcon: ".button-icon",
-            activeHoverLabel: ".button-label-hover",
-            activeHoverIcon: ".button-icon-hover",
+            activeHoverLabel: "button-label-hover",
+            activeHoverIcon: "button-icon-hover",
         }
     };
 
