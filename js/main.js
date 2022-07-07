@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 evRoadTax: ".ev-car-road-tax",
                 fuelCo: ".fuel-car-co2",
                 evCo: ".ev-car-co2",
+            },
+            labels: {
+                perMonth: ".per-label",
             }
         }
     };
@@ -91,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentType = "petrol";
 
     const changeCalc = (view, type) => {
+        document.querySelector(identifiers.calculator.labels.perMonth).innerHTML = view === "monthly" ? "Costs per month" : "Costs per year";
+
         if (view === "monthly" && type === "petrol") {
             document.querySelector(identifiers.calculator.values.fuelCo).innerHTML = "133 kg";
             document.querySelector(identifiers.calculator.values.fuelCost).innerHTML = "£ 130";
