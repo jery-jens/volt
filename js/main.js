@@ -92,4 +92,22 @@ document.addEventListener("DOMContentLoaded", () => {
             elements.calculator.radioAnnual.querySelector(identifiers.calculator.radios.active).classList.remove(identifiers.calculator.radios.hideActive);
         };
     });
+
+    elements.calculator.radioDiesel.addEventListener("click", () => {
+        const dot = elements.calculator.radioPetrol.querySelector(identifiers.calculator.radios.active);
+
+        if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
+            dot.classList.add(identifiers.calculator.radios.hideActive);
+            elements.calculator.radioDiesel.querySelector(identifiers.calculator.radios.active).classList.remove(identifiers.calculator.radios.hideActive);
+        };
+    });
+
+    elements.calculator.radioPetrol.addEventListener("click", () => {
+        const dot = elements.calculator.radioDiesel.querySelector(identifiers.calculator.radios.active);
+
+        if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
+            dot.classList.add(identifiers.calculator.radios.hideActive);
+            elements.calculator.radioPetrol.querySelector(identifiers.calculator.radios.active).classList.remove(identifiers.calculator.radios.hideActive);
+        };
+    });
 });
