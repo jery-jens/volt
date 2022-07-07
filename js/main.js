@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             labels: {
                 perMonth: ".per-label",
+                savingPrice: ".calculator-price",
             }
         }
     };
@@ -108,6 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(identifiers.calculator.values.evEfficiency).innerHTML = "3-3.5 miles per Kw";
             document.querySelector(identifiers.calculator.values.evPrice).innerHTML = "27 pence per KwH";
             document.querySelector(identifiers.calculator.values.evRoadTax).innerHTML = "£ 0";
+
+            document.querySelector(identifiers.calculator.labels.savingPrice).innerHTML = "78";
         };
 
         if (view === "monthly" && type === "diesel") {
@@ -122,6 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(identifiers.calculator.values.evEfficiency).innerHTML = "3-3.5 miles per Kw";
             document.querySelector(identifiers.calculator.values.evPrice).innerHTML = "27 pence per KwH";
             document.querySelector(identifiers.calculator.values.evRoadTax).innerHTML = "£ 0";
+
+            document.querySelector(identifiers.calculator.labels.savingPrice).innerHTML = "60";
         };
 
         if (view === "annual" && type === "petrol") {
@@ -136,6 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(identifiers.calculator.values.evEfficiency).innerHTML = "3-3.5 miles per Kw";
             document.querySelector(identifiers.calculator.values.evPrice).innerHTML = "27 pence per KwH";
             document.querySelector(identifiers.calculator.values.evRoadTax).innerHTML = "£ 0";
+
+            document.querySelector(identifiers.calculator.labels.savingPrice).innerHTML = "934";
         };
 
         if (view === "annual" && type === "diesel") {
@@ -150,6 +157,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(identifiers.calculator.values.evEfficiency).innerHTML = "3-3.5 miles per Kw";
             document.querySelector(identifiers.calculator.values.evPrice).innerHTML = "27 pence per KwH";
             document.querySelector(identifiers.calculator.values.evRoadTax).innerHTML = "£ 0";
+
+            document.querySelector(identifiers.calculator.labels.savingPrice).innerHTML = "724";
         };
     };
 
