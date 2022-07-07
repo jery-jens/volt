@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * Calculator
      */
 
-    let currentView = "monthly";
+    let currentView = "annual";
     let currentType = "petrol";
 
     const changeCalc = (view, type) => {
