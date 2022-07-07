@@ -1,12 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const identifiers = {
+        header: {
+            queryName: ".header",
+            scrolledDown: "scrolled-down",
+        }
+    };
+
+    const elements = {
+        header: document.querySelector(identifiers.header.queryName),
+    };
+
     /**
      * Header movement
      */
 
-    const header = document.querySelector(".header");
-
     window.addEventListener("scroll", () => {
         const position = this.scrollY;
-        console.log(position);
+        position >= 200 ? elements.header.classList.add(identifiers.header.scrolledDown) : elements.header.classList.remove(identifiers.header.scrolledDown);
     });
 });
