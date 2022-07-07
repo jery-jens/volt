@@ -95,7 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentType = "petrol";
 
     const changeCalc = (view, type) => {
-        document.querySelector(identifiers.calculator.labels.perMonth).innerHTML = view === "monthly" ? "Costs per month" : "Costs per year";
+        document.querySelectorAll(identifiers.calculator.labels.perMonth).forEach((item) => {
+            item.innerHTML = view === "monthly" ? "Costs per month" : "Costs per year";
+        });
 
         if (view === "monthly" && type === "petrol") {
             document.querySelector(identifiers.calculator.values.fuelCo).innerHTML = "133 kg";
