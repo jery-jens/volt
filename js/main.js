@@ -10,17 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
             queryNameIcon: ".button-icon",
             activeHoverLabel: "button-label-hover",
             activeHoverIcon: "button-icon-hover",
+        },
+        calculator: {
+            radios: {
+                monthly: ".monthly",
+                annualy: ".annualy",
+                diesel: ".diesel",
+                petrol: ".petrol",
+                active: ".radio-active",
+                hideActive: "hidden",
+            },
         }
     };
 
     const elements = {
         header: document.querySelector(identifiers.header.queryName),
         buttons: document.querySelectorAll(identifiers.button.queryName),
+        calculator: {
+            radioAnnual: document.querySelector(identifiers.calculator.radios.annualy),
+            radioMonthly: document.querySelector(identifiers.calculator.radios.monthly),
+            radioDiesel: document.querySelector(identifiers.calculator.radios.diesel),
+            radioPetrol: document.querySelector(identifiers.calculator.radios.petrol),
+        }
     };
 
     const parameters = {
         header: {
             scrollDownMargin: 40,
+        },
+        calculator: {
+
         }
     };
 
@@ -50,5 +69,27 @@ document.addEventListener("DOMContentLoaded", () => {
             label.classList.remove(identifiers.button.activeHoverLabel);
             icon.classList.remove(identifiers.button.activeHoverIcon);
         });
+    });
+
+    /**
+     * Calculator
+     */
+
+    elements.calculator.radioAnnual.addEventListener("click", () => {
+        const dot = elements.calculator.radioAnnual.querySelector(identifiers.calculator.radios.active);
+
+        if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
+            dot.classList.add(identifiers.calculator.radios.hideActive);
+            elements.calculator.radioMonthly.querySelector(identifiers.calculator.radios.active).classList.remove(identifiers.calculator.radios.hideActive);
+        };
+    });
+
+    elements.calculator.radioMonthly.addEventListener("click", () => {
+        const dot = elements.calculator.radioMonthly.querySelector(identifiers.calculator.radios.active);
+
+        if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
+            dot.classList.add(identifiers.calculator.radios.hideActive);
+            elements.calculator.radioAnnual.querySelector(identifiers.calculator.radios.active).classList.remove(identifiers.calculator.radios.hideActive);
+        };
     });
 });
