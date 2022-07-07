@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * Calculator
      */
 
-    elements.calculator.radioAnnual.addEventListener("click", () => {
+    elements.calculator.radioMonthly.addEventListener("click", () => {
         const dot = elements.calculator.radioAnnual.querySelector(identifiers.calculator.radios.active);
 
         if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     });
 
-    elements.calculator.radioMonthly.addEventListener("click", () => {
+    elements.calculator.radioAnnual.addEventListener("click", () => {
         const dot = elements.calculator.radioMonthly.querySelector(identifiers.calculator.radios.active);
 
         if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
