@@ -20,6 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 active: ".radio-active",
                 hideActive: "hidden",
             },
+            values: {
+                fuelPrice: ".fuel-car-price",
+                evPrice: ".ev-car-price",
+                fuelEfficiency: ".fuel-car-efficiency",
+                evEfficiency: ".ev-car-efficiency",
+                fuelCost: ".fuel-car-cost",
+                evCost: ".ev-car-cost",
+                fuelRoadTax: ".fuel-car-road-tax",
+                evRoadTax: ".ev-car-road-tax",
+                fuelCo: ".fuel-car-co2",
+                evCo: ".ev-car-co2",
+            }
         }
     };
 
@@ -75,39 +87,114 @@ document.addEventListener("DOMContentLoaded", () => {
      * Calculator
      */
 
+    let currentView = "monthly";
+    let currentType = "petrol";
+
+    const changeCalc = (view, type) => {
+        if (view === "monthly" && type === "petrol") {
+            document.querySelector(identifiers.calculator.values.fuelCo).innerHTML = "133 kg";
+            document.querySelector(identifiers.calculator.values.fuelCost).innerHTML = "£ 130";
+            document.querySelector(identifiers.calculator.values.fuelEfficiency).innerHTML = "48.75 mpg";
+            document.querySelector(identifiers.calculator.values.fuelPrice).innerHTML = "192.2 pence per litre";
+            document.querySelector(identifiers.calculator.values.fuelRoadTax).innerHTML = "£ 240";
+
+            document.querySelector(identifiers.calculator.values.evCo).innerHTML = "0 kg";
+            document.querySelector(identifiers.calculator.values.evCost).innerHTML = "£ 52";
+            document.querySelector(identifiers.calculator.values.evEfficiency).innerHTML = "3-3.5 miles per Kw";
+            document.querySelector(identifiers.calculator.values.evPrice).innerHTML = "27 pence per KwH";
+            document.querySelector(identifiers.calculator.values.evRoadTax).innerHTML = "£ 0";
+        };
+
+        if (view === "monthly" && type === "diesel") {
+            document.querySelector(identifiers.calculator.values.fuelCo).innerHTML = "123 kg";
+            document.querySelector(identifiers.calculator.values.fuelCost).innerHTML = "£ 112";
+            document.querySelector(identifiers.calculator.values.fuelEfficiency).innerHTML = "60.15 mpg";
+            document.querySelector(identifiers.calculator.values.fuelPrice).innerHTML = "199.2 pence per litre";
+            document.querySelector(identifiers.calculator.values.fuelRoadTax).innerHTML = "£ 240";
+
+            document.querySelector(identifiers.calculator.values.evCo).innerHTML = "0 kg";
+            document.querySelector(identifiers.calculator.values.evCost).innerHTML = "£ 52";
+            document.querySelector(identifiers.calculator.values.evEfficiency).innerHTML = "3-3.5 miles per Kw";
+            document.querySelector(identifiers.calculator.values.evPrice).innerHTML = "27 pence per KwH";
+            document.querySelector(identifiers.calculator.values.evRoadTax).innerHTML = "£ 0";
+        };
+
+        if (view === "annual" && type === "petrol") {
+            document.querySelector(identifiers.calculator.values.fuelCo).innerHTML = "1602 kg";
+            document.querySelector(identifiers.calculator.values.fuelCost).innerHTML = "£ 1558";
+            document.querySelector(identifiers.calculator.values.fuelEfficiency).innerHTML = "48.75 mpg";
+            document.querySelector(identifiers.calculator.values.fuelPrice).innerHTML = "192.2 pence per litre";
+            document.querySelector(identifiers.calculator.values.fuelRoadTax).innerHTML = "£ 240";
+
+            document.querySelector(identifiers.calculator.values.evCo).innerHTML = "0 kg";
+            document.querySelector(identifiers.calculator.values.evCost).innerHTML = "£ 623";
+            document.querySelector(identifiers.calculator.values.evEfficiency).innerHTML = "3-3.5 miles per Kw";
+            document.querySelector(identifiers.calculator.values.evPrice).innerHTML = "27 pence per KwH";
+            document.querySelector(identifiers.calculator.values.evRoadTax).innerHTML = "£ 0";
+        };
+
+        if (view === "annual" && type === "diesel") {
+            document.querySelector(identifiers.calculator.values.fuelCo).innerHTML = "1481 kg";
+            document.querySelector(identifiers.calculator.values.fuelCost).innerHTML = "£ 1347";
+            document.querySelector(identifiers.calculator.values.fuelEfficiency).innerHTML = "60.15 mpg";
+            document.querySelector(identifiers.calculator.values.fuelPrice).innerHTML = "199.2 pence per litre";
+            document.querySelector(identifiers.calculator.values.fuelRoadTax).innerHTML = "£ 240";
+
+            document.querySelector(identifiers.calculator.values.evCo).innerHTML = "0 kg";
+            document.querySelector(identifiers.calculator.values.evCost).innerHTML = "£ 623";
+            document.querySelector(identifiers.calculator.values.evEfficiency).innerHTML = "3-3.5 miles per Kw";
+            document.querySelector(identifiers.calculator.values.evPrice).innerHTML = "27 pence per KwH";
+            document.querySelector(identifiers.calculator.values.evRoadTax).innerHTML = "£ 0";
+        };
+    };
+
     elements.calculator.radioMonthly.addEventListener("click", () => {
         const dot = elements.calculator.radioAnnual.querySelector(identifiers.calculator.radios.active);
+        currentView = "monthly";
 
         if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
             dot.classList.add(identifiers.calculator.radios.hideActive);
             elements.calculator.radioMonthly.querySelector(identifiers.calculator.radios.active).classList.remove(identifiers.calculator.radios.hideActive);
         };
+
+        changeCalc(currentView, currentType);
     });
 
     elements.calculator.radioAnnual.addEventListener("click", () => {
         const dot = elements.calculator.radioMonthly.querySelector(identifiers.calculator.radios.active);
+        currentView = "annual";
 
         if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
             dot.classList.add(identifiers.calculator.radios.hideActive);
             elements.calculator.radioAnnual.querySelector(identifiers.calculator.radios.active).classList.remove(identifiers.calculator.radios.hideActive);
         };
+
+        changeCalc(currentView, currentType);
     });
 
     elements.calculator.radioDiesel.addEventListener("click", () => {
         const dot = elements.calculator.radioPetrol.querySelector(identifiers.calculator.radios.active);
+        currentType = "diesel";
 
         if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
             dot.classList.add(identifiers.calculator.radios.hideActive);
             elements.calculator.radioDiesel.querySelector(identifiers.calculator.radios.active).classList.remove(identifiers.calculator.radios.hideActive);
         };
+
+        changeCalc(currentView, currentType);
     });
 
     elements.calculator.radioPetrol.addEventListener("click", () => {
         const dot = elements.calculator.radioDiesel.querySelector(identifiers.calculator.radios.active);
+        currentType = "petrol";
 
         if (!dot.classList.contains(identifiers.calculator.radios.hideActive)) {
             dot.classList.add(identifiers.calculator.radios.hideActive);
             elements.calculator.radioPetrol.querySelector(identifiers.calculator.radios.active).classList.remove(identifiers.calculator.radios.hideActive);
         };
+
+        changeCalc(currentView, currentType);
     });
+
+    changeCalc(currentView, currentType);
 });
