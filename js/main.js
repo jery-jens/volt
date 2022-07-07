@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         calculator: {
             radios: {
                 monthly: ".monthly",
-                annualy: ".annualy",
+                annualy: ".annual",
                 diesel: ".diesel",
                 petrol: ".petrol",
                 active: ".radio-active",
